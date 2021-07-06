@@ -12,7 +12,7 @@ export default function Search(props) {
 
   useEffect(() => {
     timerFunction();
-  }, []);
+  }, [channel]);
 
   var timerFunction = () => {
     axios({
