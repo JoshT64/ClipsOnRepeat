@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import MovieIcon from '@material-ui/icons/Movie';
+import MovieIcon from '@material-ui/icons/MovieTwoTone';
 
 export default function Search(props) {
   const [channel, setChannel] = useState('');
@@ -32,11 +32,16 @@ export default function Search(props) {
 
   return (
     <div style={{ width: '100%' }}>
-      <header className="header container inline-block bg-gray-700 border-b-2 ">
+      <header className="header container inline-block bg-gray-700 border-b-2 border-blue-100 ">
         <form
           className=" m-auto mt-4 mb-4"
           onSubmit={(e) => e.preventDefault()}
         >
+          <div className="logo-container">
+            <MovieIcon className="mb-2 absolute movie" />
+            <span className="absolute logo-text">Clips on Repeat</span>
+          </div>
+
           <input
             onChange={(event) => setChannel(event.target.value)}
             value={channel}

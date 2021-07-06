@@ -78,3 +78,23 @@ footer {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
   color: aqua;
 }
+
+.movie {
+  font-weight: 500;
+  top: 1.5rem;
+  left: 1rem;
+  color: #7f8c8d;
+}
+
+.logo-text {
+  font-family: 'Roobert';
+  font-weight: 500;
+  top: 1.5rem;
+  left: 2.7rem;
+  color: #7f8c8d;
+}
+
+.logo-container:hover {
+  cursor: default;
+  text-decoration: underline;
+}
