@@ -1,0 +1,10 @@
+body {
+  overflow: hidden;
+  background-color: whitesmoke;
+}
+.text-input {
+  background-color: whitesmoke;
+}
+.text-input::placeholder {
+  text-align: center;
+}
