@@ -4,6 +4,12 @@ export default function Custom404() {
       <h1 className="text-purple-500 font-bold mt-2 align-middle text-2xl flex justify-around load">
         Watch Twitch clips forever.
       </h1>
+      <img
+        className="flex mx-auto content-between opacity-75"
+        width="64"
+        height="64"
+        src="https://i.imgur.com/6fGJpj3.png"
+      />
       <h1 className="text-purple-500 font-bold mt-2 align-middle text-2xl flex justify-around load2 underline">
         Start by typing out your favorite Twitch streamer's channel name above!
       </h1>
