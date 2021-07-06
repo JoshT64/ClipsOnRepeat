@@ -17,16 +17,15 @@ export default function Home() {
         <VideoPage />
       </main>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
+      <footer className="relative flex items-center justify-center w-full h-24 border-t border-gray-500 opacity-40">
         <a
           className="flex items-center justify-center"
           href="https://twitter.com/BlameBlizzard"
         >
           <TwitterIcon
-            src="/vercel.svg"
-            alt="Vercel Logo"
-            className="h-4 ml-2"
-            color="action"
+            alt=""
+            className="h-4 ml-2 hover:text-blue-600"
+            color="primary"
           />
         </a>
         <a
@@ -34,10 +33,9 @@ export default function Home() {
           href="https://github.com/JoshT64/"
         >
           <GitHubIcon
-            src="/vercel.svg"
-            alt="Vercel Logo"
-            className="h-4 ml-4"
-            color="action"
+            alt=""
+            className="h-4 ml-4 hover:text-gray-400"
+            color="primary"
           />
         </a>
       </footer>
