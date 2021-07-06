@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "next": "latest",
+    "next-fonts": "^1.5.1",
     "passport": "^0.4.1",
     "passport-oauth": "^1.0.0",
     "passport-twitch": "^1.0.3",
