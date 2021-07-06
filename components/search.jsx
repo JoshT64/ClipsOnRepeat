@@ -15,7 +15,7 @@ export default function Search(props) {
       url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=100`,
     })
       .then((response) => {
-        var currentHref = document.location.href;
+        var currentHref = window.location.host;
         var url = currentHref.replace(/(^\w+:|^)\/\//, '');
         console.log(url);
         const clip =
@@ -39,7 +39,6 @@ export default function Search(props) {
             className="m-1 focus:opacity-90 transition ease-in text-input ring-2 ring-gray-500 hover:ring-2 hover:placeholder-opacity-70 hover:ring-gray-500 hover:placeholder-purple-800 placeholder-purple-500 opacity-80 focus:placeholder-purple-700 border border-transparent focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-100 focus:placeholder-opacity-50"
             placeholder="Enter Twitch Channel"
           ></input>
-          {console.log(channel, embed)}
         </form>
       </header>
 
@@ -51,6 +50,7 @@ export default function Search(props) {
         scrolling="no"
         allowFullScreen="true"
       ></iframe>
+      {console.log(channel, embed)}
     </div>
   );
 }
