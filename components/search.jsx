@@ -41,7 +41,7 @@ export default function Search(props) {
 
       <iframe
         className="m-4 relative video-player"
-        src={embed + `&parent=${document.location.href}`}
+        src={embed + '&parent=' + document.location.href}
         width="1500"
         height="790"
         scrolling="no"
