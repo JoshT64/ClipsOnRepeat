@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Roobert';
+  src: url('/fonts/RoobertTRIAL-Medium.otf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Haffer';
+  src: url('/fonts/HAFFERXHTRIAL-REGULAR.otf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

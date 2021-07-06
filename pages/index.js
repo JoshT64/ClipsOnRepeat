@@ -10,6 +10,18 @@ export default function Home() {
       <Head>
         <title>Clips on Repeat</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preload"
+          href="/fonts/HAFFERXHTRIAL-REGULAR.otf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/ROOBERTTRIAL-MEDIUM.otf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
