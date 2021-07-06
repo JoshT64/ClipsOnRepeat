@@ -3,10 +3,18 @@ import axios from 'axios';
 import MovieIcon from '@material-ui/icons/MovieTwoTone';
 
 export default function Search(props) {
+  const randomMath = Math.round(Math.random() * 10);
   const [channel, setChannel] = useState('');
   const [embed, setEmbed] = useState();
+  const [clipLength, setClipLength] = useState(0);
+
+  function playVideo() {}
 
   useEffect(() => {
+    timerFunction();
+  }, []);
+
+  var timerFunction = () => {
     axios({
       method: 'GET',
       headers: {
@@ -18,17 +26,32 @@ export default function Search(props) {
       .then((response) => {
         var currentHref = window.location.host;
         var url = currentHref.replace(/(^\w+:|^)\/\//, '');
+        const clipTime = response.data.clips[randomMath].duration;
+
         console.log(url);
         const clip =
-          response.data.clips[Math.round(Math.random() * 10)].embed_url +
+          response.data.clips[randomMath].embed_url +
+          '&autoplay=true' +
           '&parent=' +
           url;
+
+        setClipLength(clipTime);
+        // console.log(clipTime);
         setEmbed(clip);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [channel]);
+
+    if (clipLength > 0) {
+      console.log(clipLength);
+      setTimeout(timerFunction, clipLength * 1000);
+    } else return;
+  };
+  if (clipLength > 0) {
+    console.log('timer: ' + clipLength);
+    setTimeout(timerFunction, clipLength * 1000);
+  }
 
   return (
     <div style={{ width: '100%' }}>
