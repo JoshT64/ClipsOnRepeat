@@ -11,10 +11,18 @@ export default function Search(props) {
   function playVideo() {}
 
   useEffect(() => {
-    timerFunction();
+    getVideo();
   }, [channel]);
 
-  var timerFunction = () => {
+  useEffect(() => {
+    var timer = () => {
+      setTimeout(getVideo, clipLength * 1000);
+    };
+    clearTimeout(timer);
+    timer();
+  }, [embed]);
+
+  var getVideo = () => {
     axios({
       method: 'GET',
       headers: {
@@ -36,22 +44,25 @@ export default function Search(props) {
           url;
 
         setClipLength(clipTime);
-        // console.log(clipTime);
+        console.log(clipTime);
         setEmbed(clip);
       })
       .catch((error) => {
         console.log(error);
       });
-
-    if (clipLength > 0) {
-      console.log(clipLength);
-      setTimeout(timerFunction, clipLength * 1000);
-    } else return;
   };
-  if (clipLength > 0) {
-    console.log('timer: ' + clipLength);
-    setTimeout(timerFunction, clipLength * 1000);
-  }
+
+  // var timer = () => {
+  //   return setTimeout(timerFunction, clipLength * 1000);
+  // };
+
+  // if (clipLength > 0) {
+  //   console.log(clipLength);
+  //   timer();
+  //   console.log('timer: ' + clipLength);
+  //   clearTimeout(timer);
+  //   setTimeout(timerFunction, clipLength * 1000);
+  // } else return;
 
   return (
     <div style={{ width: '100%' }}>
@@ -76,7 +87,7 @@ export default function Search(props) {
 
       <iframe
         className=" m-4 relative video-player"
-        src={embed + '&=autoplay=true'}
+        src={embed}
         width="1500"
         height="785"
         scrolling="no"
