@@ -13,13 +13,13 @@
   font-display: swap;
 }
 body {
-  overflow: auto;
+  overflow: hidden;
   background-color: #282828;
 }
 
 .header {
   position: relative;
-  bottom: 7px;
+  bottom: 24px;
   right: 80px;
   width: 1920px;
   min-width: none;
@@ -56,5 +56,4 @@ body {
 }
 
 /* .video-player {
-  
 } */
