@@ -17,16 +17,12 @@ export default function Home() {
         <VideoPage />
       </main>
 
-      <footer className="fixed left-0 bottom-0 flex items-center justify-center w-full h-24 border-t border-gray-500 opacity-40">
+      <footer className="fixed left-0 bottom-0 flex items-center justify-center w-full h-16 border-t border-gray-500 opacity-40">
         <a
           className="flex items-center justify-center"
           href="https://twitter.com/BlameBlizzard"
         >
-          <TwitterIcon
-            alt=""
-            className="h-4 ml-2 hover:text-blue-600"
-            color="primary"
-          />
+          <TwitterIcon alt="" className="h-4 ml-2 twitter" color="primary" />
         </a>
         <a
           className="flex items-center justify-center"

@@ -29,12 +29,15 @@ body {
 .text-input {
   /* font-family: 'Haffer'; */
   background-color: whitesmoke;
+  font-size: 20px;
+  font-family: 'Haffer';
 }
 .text-input::placeholder {
   font-size: 0.87rem;
   font-family: 'Haffer';
   text-align: center;
-  margin-bottom: 10rem;
+  position: relative;
+  bottom: 4px;
 }
 
 .load {
@@ -50,10 +53,27 @@ body {
 }
 
 .placehold-player {
+  width: 1700px;
+  height: 75vh;
   margin-top: 5rem;
-  position: relative;
-  left: 220px;
 }
 
-/* .video-player {
-} */
+.video-player {
+  bottom: 2rem;
+  left: 7.1rem;
+}
+
+footer {
+}
+
+.github:hover {
+}
+
+.twitter {
+  color: white;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.twitter:hover {
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: aqua;
+}
