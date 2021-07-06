@@ -44,6 +44,7 @@ export default function Search(props) {
 
       <iframe
         className="m-4 relative video-player"
+        autoplay="true"
         src={embed}
         width="1500"
         height="790"
