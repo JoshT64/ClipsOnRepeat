@@ -22,7 +22,7 @@ export default function Home() {
           className="flex items-center justify-center"
           href="https://twitter.com/BlameBlizzard"
         >
-          <TwitterIcon alt="" className="h-4 ml-2 twitter" color="primary" />
+          <TwitterIcon alt="" className="h-4 mx-auto twitter" color="primary" />
         </a>
         <a
           className="flex items-center justify-center"
@@ -30,7 +30,7 @@ export default function Home() {
         >
           <GitHubIcon
             alt=""
-            className="h-4 ml-4 hover:text-gray-400"
+            className="h-4 ml-2 mx-auto hover:text-gray-400"
             color="primary"
           />
         </a>

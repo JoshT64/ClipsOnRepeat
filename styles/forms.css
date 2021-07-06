@@ -37,7 +37,8 @@ body {
   font-family: 'Haffer';
   text-align: center;
   position: relative;
-  bottom: 4px;
+  bottom: 3.5px;
+  right: 2.4px;
 }
 
 .load {
