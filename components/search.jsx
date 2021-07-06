@@ -15,9 +15,7 @@ export default function Search(props) {
       url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=100`,
     })
       .then((response) => {
-        console.log(
-          response.data.clips[Math.round(Math.random() * 10)].embed_url
-        );
+        console.log(document.location.href);
         const clip =
           response.data.clips[Math.round(Math.random() * 10)].embed_url;
         setEmbed(clip);
@@ -43,10 +41,7 @@ export default function Search(props) {
 
       <iframe
         className="m-4 relative video-player"
-        src={
-          embed +
-          '&parent=https://clips-on-repeat-fytfhyqwh-josht64.vercel.app/'
-        }
+        src={embed + `&parent=${document.location.href}`}
         width="1500"
         height="790"
         scrolling="no"
