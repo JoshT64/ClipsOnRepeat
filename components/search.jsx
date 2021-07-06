@@ -4,7 +4,6 @@ import axios from 'axios';
 export default function Search(props) {
   const [channel, setChannel] = useState('');
   const [embed, setEmbed] = useState();
-  const [parent, setParent] = useState('');
 
   useEffect(() => {
     axios({
@@ -16,9 +15,13 @@ export default function Search(props) {
       url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=100`,
     })
       .then((response) => {
-        setParent(document.location.href);
+        var currentHref = document.location.href;
+        var url = currentHref.replace(/(^\w+:|^)\/\//, '');
+        console.log(url);
         const clip =
-          response.data.clips[Math.round(Math.random() * 10)].embed_url;
+          response.data.clips[Math.round(Math.random() * 10)].embed_url +
+          '&parent=' +
+          url;
         setEmbed(clip);
       })
       .catch((error) => {
@@ -43,7 +46,6 @@ export default function Search(props) {
       <iframe
         className="m-4 relative video-player"
         src={embed}
-        parent={parent}
         width="1500"
         height="790"
         scrolling="no"
