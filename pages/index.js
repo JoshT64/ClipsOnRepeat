@@ -10,8 +10,8 @@ export default function Home() {
       <Head>
         <title>Clips on Repeat</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/fonts/HAFFERXHTRIAL-REGULAR.OTF" />
-        <link rel="stylesheet" href="/fonts/ROOBERTTRIAL-MEDIUM.OTF" />
+        <link rel="stylesheet" href="fonts/HAFFERXHTRIAL-REGULAR.OTF" />
+        <link rel="stylesheet" href="fonts/ROOBERTTRIAL-MEDIUM.OTF" />
         {/* <link
           rel="preload"
           type="font/otf"
