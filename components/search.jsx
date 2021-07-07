@@ -25,7 +25,7 @@ export default function Search() {
     nextClip();
   }, [embed, channel]);
 
-  var getVideo = () => {
+  const getVideo = () => {
     axios({
       method: 'GET',
       headers: {
@@ -37,7 +37,7 @@ export default function Search() {
       .then((response) => {
         var currentHref = window.location.host;
         var url = currentHref.replace(/(^\w+:|^)\/\//, '');
-        const clipTime = response.data.clips[randomMath].duration;
+        let clipTime = response.data.clips[randomMath].duration;
 
         console.log(url);
         const clip =
@@ -49,7 +49,6 @@ export default function Search() {
 
         setClipLength(clipTime);
         console.log(clipTime);
-        setClipLength(0);
         setEmbed(clip);
       })
       .catch((error) => {
