@@ -49,6 +49,7 @@ export default function Search() {
 
         setClipLength(clipTime);
         console.log(clipTime);
+        setClipLength(0);
         setEmbed(clip);
       })
       .catch((error) => {
@@ -82,6 +83,7 @@ export default function Search() {
 
           <input
             onChange={(event) => setChannel(event.target.value)}
+            onChange={() => {}}
             value={channel}
             className=" rounded relative border m-1 focus:opacity-90 transition ease-in text-input  hover:ring-2 hover:placeholder-opacity-70 hover:ring-gray-500 hover:placeholder-purple-800 placeholder-purple-500 opacity-80 focus:placeholder-purple-700 border border-transparent focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-100 focus:placeholder-opacity-50"
             placeholder="Enter Twitch Channel"
