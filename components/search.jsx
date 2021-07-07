@@ -35,7 +35,7 @@ export default function Search() {
         var currentHref = window.location.host;
         var url = currentHref.replace(/(^\w+:|^)\/\//, '');
         const clipTime = response.data.clips[randomMath].duration;
-        
+
         console.log(url);
         const clip =
           response.data.clips[randomMath].embed_url +
@@ -86,6 +86,8 @@ export default function Search() {
       </header>
 
       {isVideoLoaded ? (
+        <StartPage />
+      ) : (
         <iframe
           className=" m-4 relative video-player"
           src={embed}
@@ -94,8 +96,6 @@ export default function Search() {
           scrolling="no"
           allowfullscreen="true"
         ></iframe>
-      ) : (
-        <StartPage />
       )}
       {console.log(channel, embed)}
     </div>

@@ -2,7 +2,10 @@ import React from 'react';
 
 export default function StartPage() {
   return (
-    <div className="container m-auto placehold-player bg-gray-700 border-2 border-gray-500">
+    <div
+      style={{ zIndex: '100' }}
+      className="container m-auto placehold-player bg-gray-700 border-2 border-gray-500"
+    >
       <h1 className="text-purple-500 font-bold mt-8 align-middle text-2xl flex justify-around load">
         Watch Twitch clips forever.
       </h1>
