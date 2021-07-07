@@ -9,19 +9,21 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Clips on Repeat</title>
-        <link rel="stylesheet" href="/fonts/fonts.css" />
+        <link rel="stylesheet" href="./public/fonts/fonts.css" />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="preload"
+          type="font/otf"
           href="/fonts/HAFFERXHTRIAL-REGULAR.otf"
           as="font"
-          crossOrigin=""
+          crossOrigin="anonymous"
         />
         <link
           rel="preload"
           href="/fonts/ROOBERTTRIAL-MEDIUM.otf"
           as="font"
-          crossOrigin=""
+          type="font/otf"
+          crossOrigin="anonymous"
         />
       </Head>
 
