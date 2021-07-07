@@ -17,8 +17,10 @@ export default function Search() {
 
   useEffect(() => {
     const nextClip = () => {
-      clearInterval(timer);
-      var timer = setTimeout(getVideo, clipLength * 1005);
+      if (clipLength > 0) {
+        clearInterval(timer);
+        var timer = setTimeout(getVideo, clipLength * 1005);
+      }
     };
     nextClip();
   }, [embed]);
