@@ -73,7 +73,12 @@ export default function Search() {
         >
           <div className="logo-container">
             <MovieIcon className="mb-2 absolute movie" />
-            <span className="absolute logo-text">Clips on Repeat</span>
+            <span
+              style={{ fontFamily: 'Roobert' }}
+              className="absolute logo-text"
+            >
+              Clips on Repeat
+            </span>
           </div>
 
           <input

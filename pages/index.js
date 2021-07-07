@@ -4,15 +4,15 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import VideoPage from './video';
 import Search from '../components/search';
 
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Clips on Repeat</title>
-
-        <link rel="stylesheet" href="./public/fonts/fonts.css" />
         <link rel="icon" href="/favicon.ico" />
-        <link
+        <link rel="stylesheet" href="/styles/forms.css" />
+        {/* <link
           rel="preload"
           type="font/otf"
           href="/fonts/HAFFERXHTRIAL-REGULAR.otf"
@@ -25,9 +25,9 @@ export default function Home() {
           as="font"
           type="font/otf"
           crossOrigin="anonymous"
-        />
+        /> */}
       </Head>
-      <style jsx global>{`
+      {/* <style jsx global>{`
           @font-face {
             font-family: 'Roobert';
             src: url('/public/fonts/RoobertTRIAL-Medium.otf') format('embedded-opentype')
@@ -35,7 +35,10 @@ export default function Home() {
             font-weight: 400;
             font-display: swap;
           }
-        `}</style>
+          html {
+            font-family: 'Roobert';
+          }
+        `}</style> */}
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <Search />
         <VideoPage />
