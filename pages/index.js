@@ -4,14 +4,14 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import VideoPage from './video';
 import Search from '../components/search';
 
-
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Clips on Repeat</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="/styles/forms.css" />
+        <link rel="stylesheet" href="/fonts/HAFFERXHTRIAL-REGULAR.OTF" />
+        <link rel="stylesheet" href="/fonts/ROOBERTTRIAL-MEDIUM.OTF" />
         {/* <link
           rel="preload"
           type="font/otf"
