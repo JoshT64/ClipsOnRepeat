@@ -1,13 +1,15 @@
 @font-face {
   font-family: 'Roobert';
-  src: url('~/fonts/RoobertTRIAL-Medium.otf');
+  src: url('/fonts/RoobertTRIAL-Medium.otf') format('opentype') format('otf')
+    format('opentype-embedded') local('/fonts/HAFFERXHTRIAL-REGULAR.OTF');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: 'Haffer';
-  src: url('~/fonts/HAFFERXHTRIAL-REGULAR.otf');
+  src: url('/fonts/HAFFERXHTRIAL-REGULAR.otf') format('opentype') format('otf')
+    format('opentype-embedded');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
