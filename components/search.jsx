@@ -13,13 +13,13 @@ export default function Search() {
 
   useEffect(() => {
     getVideo();
+    setIsVideoLoaded(true);
   }, [channel]);
 
   useEffect(() => {
     var timer = setTimeout(getVideo, clipLength * 1000);
 
     clearTimeout(timer);
-    setIsVideoLoaded(true);
   }, [embed]);
 
   var getVideo = () => {
@@ -86,8 +86,6 @@ export default function Search() {
       </header>
 
       {isVideoLoaded ? (
-        <StartPage />
-      ) : (
         <iframe
           className=" m-4 relative video-player"
           src={embed}
@@ -96,6 +94,8 @@ export default function Search() {
           scrolling="no"
           allowfullscreen="true"
         ></iframe>
+      ) : (
+        <StartPage />
       )}
       {console.log(channel, embed)}
     </div>
