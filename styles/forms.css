@@ -56,7 +56,9 @@ body {
 .placehold-player {
   width: 1700px;
   height: 75vh;
-  margin-top: 5rem;
+  margin: 3.47rem 0;
+  bottom: 3rem;
+  left: 7rem;
 }
 
 .video-player {

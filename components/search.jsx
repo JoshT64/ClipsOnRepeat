@@ -13,7 +13,6 @@ export default function Search() {
 
   useEffect(() => {
     getVideo();
-    setIsVideoLoaded(true);
   }, [channel]);
 
   useEffect(() => {
@@ -42,6 +41,7 @@ export default function Search() {
           '&autoplay=true' +
           '&parent=' +
           url;
+        setIsVideoLoaded(true);
 
         setClipLength(clipTime);
         console.log(clipTime);

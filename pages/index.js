@@ -9,6 +9,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Clips on Repeat</title>
+
         <link rel="stylesheet" href="./public/fonts/fonts.css" />
         <link rel="icon" href="/favicon.ico" />
         <link
@@ -26,7 +27,15 @@ export default function Home() {
           crossOrigin="anonymous"
         />
       </Head>
-
+      <style jsx global>{`
+          @font-face {
+            font-family: 'Roobert';
+            src: url('/public/fonts/RoobertTRIAL-Medium.otf') format('embedded-opentype')
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+          }
+        `}</style>
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <Search />
         <VideoPage />
