@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieIcon from '@material-ui/icons/MovieTwoTone';
+import StartPage from './400page';
 
-export default function Search(props) {
+export default function Search() {
   const randomMath = Math.round(Math.random() * 10);
+
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [channel, setChannel] = useState('');
   const [embed, setEmbed] = useState();
   const [clipLength, setClipLength] = useState(0);
-
-  function playVideo() {}
 
   useEffect(() => {
     getVideo();
   }, [channel]);
 
   useEffect(() => {
-    var timer = () => {
-      setTimeout(getVideo, clipLength * 1000);
-    };
+    var timer = setTimeout(getVideo, clipLength * 1000);
+
     clearTimeout(timer);
-    timer();
+    setIsVideoLoaded(true);
   }, [embed]);
 
   var getVideo = () => {
@@ -35,7 +35,7 @@ export default function Search(props) {
         var currentHref = window.location.host;
         var url = currentHref.replace(/(^\w+:|^)\/\//, '');
         const clipTime = response.data.clips[randomMath].duration;
-
+        
         console.log(url);
         const clip =
           response.data.clips[randomMath].embed_url +
@@ -85,14 +85,18 @@ export default function Search(props) {
         </form>
       </header>
 
-      <iframe
-        className=" m-4 relative video-player"
-        src={embed}
-        width="1500"
-        height="785"
-        scrolling="no"
-        allowfullscreen="true"
-      ></iframe>
+      {isVideoLoaded ? (
+        <iframe
+          className=" m-4 relative video-player"
+          src={embed}
+          width="1500"
+          height="785"
+          scrolling="no"
+          allowfullscreen="true"
+        ></iframe>
+      ) : (
+        <StartPage />
+      )}
       {console.log(channel, embed)}
     </div>
   );
