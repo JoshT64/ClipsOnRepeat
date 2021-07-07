@@ -19,7 +19,7 @@ export default function Search() {
     const nextClip = () => {
       if (clipLength > 0) {
         clearInterval(timer);
-        var timer = setTimeout(getVideo, clipLength * 1005);
+        var timer = setTimeout(getVideo, clipLength * 1100);
       }
     };
     nextClip();
