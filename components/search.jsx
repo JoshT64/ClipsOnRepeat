@@ -16,9 +16,11 @@ export default function Search() {
   }, [channel]);
 
   useEffect(() => {
-    var timer = setTimeout(getVideo, clipLength * 1000);
-
-    clearTimeout(timer);
+    const nextClip = () => {
+      clearInterval(timer);
+      var timer = setTimeout(getVideo, clipLength * 1000);
+    };
+    nextClip();
   }, [embed]);
 
   var getVideo = () => {
@@ -73,12 +75,7 @@ export default function Search() {
         >
           <div className="logo-container">
             <MovieIcon className="mb-2 absolute movie" />
-            <span
-              style={{ fontFamily: 'Roobert' }}
-              className="absolute logo-text"
-            >
-              Clips on Repeat
-            </span>
+            <span className="absolute logo-text">Clips on Repeat</span>
           </div>
 
           <input
