@@ -23,7 +23,7 @@ export default function Search() {
       }
     };
     nextClip();
-  }, [embed]);
+  }, [embed, channel]);
 
   var getVideo = () => {
     axios({
