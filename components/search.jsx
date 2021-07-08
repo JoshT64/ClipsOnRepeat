@@ -5,7 +5,7 @@ import StartPage from './400page';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
 //Click a button where the pause button is on the iframe so absolute pos
-//Clear current interval 
+//Clear current interval
 //Set ClipLength to Current ClipLength
 export default function Search() {
   const randomMath = Math.round(Math.random() * 10);
@@ -48,9 +48,9 @@ export default function Search() {
         const clip =
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
-          // '&parent=' + uncomment this for prod and comment below PARENT ISSUE
-          // url +
-          '&parent=localhost';
+          '&parent=' +
+          url;
+        // '&parent=localhost';
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
