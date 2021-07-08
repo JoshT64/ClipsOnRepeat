@@ -3,10 +3,9 @@ import axios from 'axios';
 import MovieIcon from '@material-ui/icons/MovieTwoTone';
 import StartPage from './400page';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import TopStreamers from './TopStreamers';
 const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
-//Click a button where the pause button is on the iframe so absolute pos
-//Clear current interval
-//Set ClipLength to Current ClipLength
+
 export default function Search() {
   const randomMath = Math.round(Math.random() * 10);
 
@@ -28,9 +27,9 @@ export default function Search() {
     }, clipLength * 1000 + 1500);
 
     return () => clearInterval(timer); //When unmounted
-  }, [embed]);
+  }, [embed, setChannel]);
 
-  const getVideo = () => {
+  const getVideo = (channelName) => {
     axios({
       method: 'GET',
       headers: {
@@ -44,7 +43,7 @@ export default function Search() {
         const url = currentHref.replace(/(^\w+:|^)\/\//, '');
         let clipTime = response.data.clips[randomMath].duration;
 
-        console.log(url);
+        // console.log(url);
         const clip =
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
@@ -93,6 +92,7 @@ export default function Search() {
           ></input>
         </form>
       </header>
+      <TopStreamers streamerName={setChannel} />
       <div
         onClick={() => {
           getVideo();

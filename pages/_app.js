@@ -7,3 +7,7 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+
+//Click a button where the pause button is on the iframe so absolute pos
+//Clear current interval
+//Set ClipLength to Current ClipLength
