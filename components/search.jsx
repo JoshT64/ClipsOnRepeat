@@ -34,7 +34,7 @@ export default function Search() {
     axios({
       method: 'GET',
       headers: {
-        'Client-ID': id,
+        'Client-ID': 'wuresifx2vrlunnamky2hgnwx9241b',
         Accept: 'application/vnd.twitchtv.v5+json',
       },
       url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=99`,
