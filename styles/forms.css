@@ -1,4 +1,3 @@
-
 body {
   overflow: hidden;
   background-color: #282828;
@@ -86,4 +85,8 @@ footer {
 .logo-container:hover {
   cursor: default;
   text-decoration: underline;
+}
+
+.next-button {
+  bottom: 25rem;
 }

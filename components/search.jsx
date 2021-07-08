@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieIcon from '@material-ui/icons/MovieTwoTone';
 import StartPage from './400page';
-
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
+//Click a button where the pause button is on the iframe so absolute pos
+//Clear current interval 
+//Set ClipLength to Current ClipLength
 export default function Search() {
   const randomMath = Math.round(Math.random() * 10);
 
+  const [isPaused, setIsPaused] = useState(false);
+  const [back, setBack] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [channel, setChannel] = useState('');
   const [embed, setEmbed] = useState();
@@ -16,35 +22,35 @@ export default function Search() {
   }, [channel]);
 
   useEffect(() => {
-    const nextClip = () => {
-      if (clipLength > 0) {
-        clearInterval(timer);
-        var timer = setTimeout(getVideo, clipLength * 1000 + 20);
-      }
-    };
-    nextClip();
-  }, [embed, channel]);
+    let timer = setTimeout(() => {
+      //On update of embed state
+      getVideo();
+    }, clipLength * 1000 + 1500);
+
+    return () => clearInterval(timer); //When unmounted
+  }, [embed]);
 
   const getVideo = () => {
     axios({
       method: 'GET',
       headers: {
-        'Client-ID': 'wuresifx2vrlunnamky2hgnwx9241b',
+        'Client-ID': id,
         Accept: 'application/vnd.twitchtv.v5+json',
       },
-      url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=100`,
+      url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=99`,
     })
       .then((response) => {
-        var currentHref = window.location.host;
-        var url = currentHref.replace(/(^\w+:|^)\/\//, '');
+        const currentHref = window.location.host;
+        const url = currentHref.replace(/(^\w+:|^)\/\//, '');
         let clipTime = response.data.clips[randomMath].duration;
 
         console.log(url);
         const clip =
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
-          '&parent=' +
-          url;
+          // '&parent=' + uncomment this for prod and comment below PARENT ISSUE
+          // url +
+          '&parent=localhost';
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
@@ -67,7 +73,6 @@ export default function Search() {
   //   clearTimeout(timer);
   //   setTimeout(timerFunction, clipLength * 1000);
   // } else return;
-
   return (
     <div style={{ width: '100%' }}>
       <header className="header container inline-block bg-gray-700 border-b-2 border-blue-100 ">
@@ -88,6 +93,16 @@ export default function Search() {
           ></input>
         </form>
       </header>
+      <div
+        onClick={() => {
+          getVideo();
+        }}
+        className="absolute next-button right-16 w-12 p-2 border-b-2 border-purple-500 text-gray-500 hover:border-purple-600 hover:text-gray-700 transition ease-in duration duration-50"
+      >
+        <button>
+          <ArrowForwardIosIcon />
+        </button>
+      </div>
 
       {isVideoLoaded ? (
         <iframe

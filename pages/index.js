@@ -3,6 +3,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import VideoPage from './video';
 import Search from '../components/search';
+import NextButton from '../components/nextButton';
+import BackButton from '../components/backButton';
 
 export default function Home() {
   return (
@@ -41,6 +43,8 @@ export default function Home() {
         `}</style> */}
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <Search />
+        {/* <NextButton />
+        <BackButton /> */}
         <VideoPage />
       </main>
 
