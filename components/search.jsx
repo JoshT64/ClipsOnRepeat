@@ -7,7 +7,7 @@ import TopStreamers from './TopStreamers';
 const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
 
 export default function Search() {
-  const randomMath = Math.round(Math.random() * 10);
+  const randomMath = Math.round(Math.random() * 80);
 
   // const [isPaused, setIsPaused] = useState(false);
   // const [back, setBack] = useState(false);
@@ -42,7 +42,7 @@ export default function Search() {
         const currentHref = window.location.host;
         const url = currentHref.replace(/(^\w+:|^)\/\//, '');
         let clipTime = response.data.clips[randomMath].duration;
-
+        console.log(randomMath);
         // console.log(url);
         const clip =
           response.data.clips[randomMath].embed_url +
@@ -53,7 +53,7 @@ export default function Search() {
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
-        console.log(clipTime);
+        // console.log(clipTime);
         setEmbed(clip);
       })
       .catch((error) => {
@@ -74,7 +74,6 @@ export default function Search() {
   // } else return;
 
   const handleChange = (event) => {
-    console.log(event.target);
     setChannel(event.target.value);
   };
 
@@ -122,7 +121,7 @@ export default function Search() {
       ) : (
         <StartPage />
       )}
-      {console.log(channel, embed)}
+      {/* {console.log(channel, embed)} */}
     </div>
   );
 }
