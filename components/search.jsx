@@ -47,9 +47,9 @@ export default function Search() {
         const clip =
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
-          // '&parent=' +
-          // url;
-          '&parent=localhost';
+          '&parent=' +
+          url;
+        // '&parent=localhost';
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
