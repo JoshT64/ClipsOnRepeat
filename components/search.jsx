@@ -9,8 +9,8 @@ const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
 export default function Search() {
   const randomMath = Math.round(Math.random() * 10);
 
-  const [isPaused, setIsPaused] = useState(false);
-  const [back, setBack] = useState(false);
+  // const [isPaused, setIsPaused] = useState(false);
+  // const [back, setBack] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [channel, setChannel] = useState('');
   const [embed, setEmbed] = useState();
@@ -47,9 +47,9 @@ export default function Search() {
         const clip =
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
-          '&parent=' +
-          url;
-        // '&parent=localhost';
+          // '&parent=' +
+          // url;
+          '&parent=localhost';
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
@@ -72,6 +72,12 @@ export default function Search() {
   //   clearTimeout(timer);
   //   setTimeout(timerFunction, clipLength * 1000);
   // } else return;
+
+  const handleChange = (event) => {
+    console.log(event.target);
+    setChannel(event.target.value);
+  };
+
   return (
     <div style={{ width: '100%' }}>
       <header className="header container inline-block bg-gray-700 border-b-2 border-blue-100 ">
@@ -85,9 +91,9 @@ export default function Search() {
           </div>
 
           <input
-            onChange={(event) => setChannel(event.target.value)}
-            value={channel}
+            onChange={handleChange}
             className=" rounded relative border m-1 focus:opacity-90 transition ease-in text-input  hover:ring-2 hover:placeholder-opacity-70 hover:ring-gray-500 hover:placeholder-purple-800 placeholder-purple-500 opacity-80 focus:placeholder-purple-700 border border-transparent focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-100 focus:placeholder-opacity-50"
+            defaultValue={channel}
             placeholder="Enter Twitch Channel"
           ></input>
         </form>

@@ -4,8 +4,6 @@ import axios from 'axios';
 let channels = [];
 
 export default function TopStreamers(props) {
-  const [channelName, setChannelName] = useState('');
-  const [clicked, isClicked] = useState(false);
   const [channelList, setChannelList] = useState([{}]);
 
   useEffect(() => {
@@ -16,7 +14,7 @@ export default function TopStreamers(props) {
           'Client-ID': 'wuresifx2vrlunnamky2hgnwx9241b',
           Accept: 'application/vnd.twitchtv.v5+json',
         },
-        url: `https://api.twitch.tv/kraken/streams/?limit=30`,
+        url: `https://api.twitch.tv/kraken/streams/?limit=27`,
       })
         .then((response) => {
           for (let i = 0; i < response.data.streams.length; i++) {
@@ -34,15 +32,13 @@ export default function TopStreamers(props) {
     };
     getStreams();
   }, []);
-  props.streamerName(channelName);
+  // props.streamerName(channelName);
   const channelMap = channels.map((channel, index, arr) => (
     <div>
       <li
         className="hover:text-gray-700 cursor-pointer"
         onClick={(event, index, arr) => {
-          setChannelName(() => {
-            setChannelName(event.target.innerHTML);
-          });
+          props.streamerName(event.target.innerHTML);
         }}
       >
         {channel}
@@ -51,12 +47,12 @@ export default function TopStreamers(props) {
   ));
 
   return (
-    <div className="absolute left-8 border p-2 border-blue-300">
-      <h1 className="text-purple-600 cursor-default border-b-2 pb-0 border-opacity-75 border-gray-500 font-bold">
+    <div className="absolute left-8 p-2 top-streamer-border">
+      <h1 className="text-purple-600 cursor-default border-b-2 pb-0 border-opacity-75 border-gray-500 font-bold ">
         Top Channels
       </h1>
 
-      <ul className="text-gray-500">{channelMap}</ul>
+      <ul className="text-gray-500 ">{channelMap}</ul>
     </div>
   );
 }
