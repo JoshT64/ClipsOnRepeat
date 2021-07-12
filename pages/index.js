@@ -11,7 +11,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
         <title>Clips on Repeat</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/clips.png" />
         <link rel="stylesheet" href="fonts/HAFFERXHTRIAL-REGULAR.OTF" />
         <link rel="stylesheet" href="fonts/ROOBERTTRIAL-MEDIUM.OTF" />
         <meta
