@@ -7,8 +7,6 @@ import TopStreamers from './TopStreamers';
 const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
 
 export default function Search() {
-  const randomMath = Math.round(Math.random() * 80);
-
   // const [isPaused, setIsPaused] = useState(false);
   // const [back, setBack] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -39,6 +37,9 @@ export default function Search() {
       url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=99`,
     })
       .then((response) => {
+        const randomMath = Math.round(
+          Math.random() * response.data.clips.length
+        );
         const currentHref = window.location.host;
         const url = currentHref.replace(/(^\w+:|^)\/\//, '');
         let clipTime = response.data.clips[randomMath].duration;
