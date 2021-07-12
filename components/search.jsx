@@ -11,6 +11,7 @@ export default function Search() {
   // const [back, setBack] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [channel, setChannel] = useState('');
+  const [game, setGame] = useState('');
   const [embed, setEmbed] = useState();
   const [clipLength, setClipLength] = useState(0);
 
@@ -49,8 +50,8 @@ export default function Search() {
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
           '&parent=' +
-          url;
-        // '&parent=localhost';
+          // url;
+          'localhost';
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
@@ -103,7 +104,7 @@ export default function Search() {
         onClick={() => {
           getVideo();
         }}
-        className="absolute next-button right-16 w-12 p-2 border-b-2 border-purple-500 text-gray-500 hover:border-purple-600 hover:text-gray-700 transition ease-in duration duration-50"
+        className="absolute next-button right-16 w-12 p-2 border-b-2 border-purple-500 text-gray-500 hover:border-purple-600 hover:text-gray-700 transition ease-out "
       >
         <button>
           <ArrowForwardIosIcon />

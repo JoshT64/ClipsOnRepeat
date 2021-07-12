@@ -14,33 +14,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="fonts/HAFFERXHTRIAL-REGULAR.OTF" />
         <link rel="stylesheet" href="fonts/ROOBERTTRIAL-MEDIUM.OTF" />
-        {/* <link
-          rel="preload"
-          type="font/otf"
-          href="/fonts/HAFFERXHTRIAL-REGULAR.otf"
-          as="font"
-          crossOrigin="anonymous"
+        <meta
+          name="application-name"
+          content="Clips On Repeat | Watch Twitch Clips Forever"
         />
-        <link
-          rel="preload"
-          href="/fonts/ROOBERTTRIAL-MEDIUM.otf"
-          as="font"
-          type="font/otf"
-          crossOrigin="anonymous"
-        /> */}
+        <meta
+          name="description"
+          content="Watch Twitch Clips forever by simply typing or selecting a Twitch Channel."
+        />
       </Head>
-      {/* <style jsx global>{`
-          @font-face {
-            font-family: 'Roobert';
-            src: url('/public/fonts/RoobertTRIAL-Medium.otf') format('embedded-opentype')
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-          }
-          html {
-            font-family: 'Roobert';
-          }
-        `}</style> */}
+
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <Search />
         {/* <NextButton />
