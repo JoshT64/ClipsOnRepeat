@@ -50,8 +50,8 @@ export default function Search() {
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
           '&parent=' +
-          // url;
-          'localhost';
+          url;
+        // 'localhost';
         setIsVideoLoaded(true);
 
         setClipLength(clipTime);
