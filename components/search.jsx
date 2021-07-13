@@ -4,16 +4,17 @@ import MovieIcon from '@material-ui/icons/MovieTwoTone';
 import StartPage from './400page';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import TopStreamers from './TopStreamers';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import ToggleButton from '@material-ui/lab/ToggleButton';
 const id = process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID;
 
 export default function Search() {
-  // const [isPaused, setIsPaused] = useState(false);
-  // const [back, setBack] = useState(false);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [channel, setChannel] = useState('');
-  const [game, setGame] = useState('');
   const [embed, setEmbed] = useState();
   const [clipLength, setClipLength] = useState(0);
+  const [time, setTime] = useState(0);
+  const [period, setPeriod] = useState('week');
 
   useEffect(() => {
     getVideo();
@@ -28,6 +29,10 @@ export default function Search() {
     return () => clearInterval(timer); //When unmounted
   }, [embed, setChannel]);
 
+  const setVidPeriod = (vidPeriod) => {
+    setPeriod(vidPeriod);
+  };
+
   const getVideo = (channelName) => {
     axios({
       method: 'GET',
@@ -35,7 +40,7 @@ export default function Search() {
         'Client-ID': 'wuresifx2vrlunnamky2hgnwx9241b',
         Accept: 'application/vnd.twitchtv.v5+json',
       },
-      url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=99`,
+      url: `https://api.twitch.tv/kraken/clips/top?channel=${channel}&limit=99&period=${period}`,
     })
       .then((response) => {
         const randomMath = Math.round(
@@ -44,18 +49,15 @@ export default function Search() {
         const currentHref = window.location.host;
         const url = currentHref.replace(/(^\w+:|^)\/\//, '');
         let clipTime = response.data.clips[randomMath].duration;
-        console.log(randomMath);
-        // console.log(url);
+        console.log(period, time);
         const clip =
           response.data.clips[randomMath].embed_url +
           '&autoplay=true' +
           '&parent=' +
-          url;
-        // 'localhost';
+          // url;
+          'localhost';
         setIsVideoLoaded(true);
-
         setClipLength(clipTime);
-        // console.log(clipTime);
         setEmbed(clip);
       })
       .catch((error) => {
@@ -63,22 +65,16 @@ export default function Search() {
       });
   };
 
-  // var timer = () => {
-  //   return setTimeout(timerFunction, clipLength * 1000);
-  // };
-
-  // if (clipLength > 0) {
-  //   console.log(clipLength);
-  //   timer();
-  //   console.log('timer: ' + clipLength);
-  //   clearTimeout(timer);
-  //   setTimeout(timerFunction, clipLength * 1000);
-  // } else return;
-
   const handleChange = (event) => {
     setChannel(event.target.value);
   };
 
+  // const handleToggle = (event, newTime) => {
+  //   if (newTime !== null) {
+  //     setTime(newTime);
+  //   }
+  // };
+  console.log(period);
   return (
     <div style={{ width: '100%' }}>
       <header className="header container inline-block bg-gray-700 border-b-2 border-blue-100 ">
@@ -93,10 +89,39 @@ export default function Search() {
 
           <input
             onChange={handleChange}
-            className=" rounded relative border m-1 focus:opacity-90 transition ease-in text-input  hover:ring-2 hover:placeholder-opacity-70 hover:ring-gray-500 hover:placeholder-purple-800 placeholder-purple-500 opacity-80 focus:placeholder-purple-700 border border-transparent focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-100 focus:placeholder-opacity-50"
+            className="rounded relative border m-1 focus:opacity-90 transition ease-in text-input  hover:ring-2 hover:placeholder-opacity-70 hover:ring-gray-500 hover:placeholder-purple-800 placeholder-purple-500 opacity-80 focus:placeholder-purple-700 border border-transparent focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-100 focus:placeholder-opacity-50"
             defaultValue={channel}
             placeholder="Enter Twitch Channel"
           ></input>
+          <ToggleButtonGroup
+            exclusive="true"
+            className="absolute buttons m-auto"
+            size="small"
+            aria-label="small outlined button group"
+            value={period}
+          >
+            <ToggleButton
+              value={'week'}
+              onClick={() => setVidPeriod('week')}
+              disableRipple="true"
+            >
+              Week
+            </ToggleButton>
+            <ToggleButton
+              value={'month'}
+              onClick={() => setVidPeriod('month')}
+              disableRipple="true"
+            >
+              Month
+            </ToggleButton>
+            <ToggleButton
+              value={'all'}
+              onClick={() => setVidPeriod('all')}
+              disableRipple="true"
+            >
+              All Time
+            </ToggleButton>
+          </ToggleButtonGroup>
         </form>
       </header>
       <TopStreamers streamerName={setChannel} />
@@ -123,7 +148,6 @@ export default function Search() {
       ) : (
         <StartPage />
       )}
-      {/* {console.log(channel, embed)} */}
     </div>
   );
 }

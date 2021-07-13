@@ -4,9 +4,9 @@ export default function StartPage() {
   return (
     <div
       style={{ zIndex: '100' }}
-      className="container m-auto placehold-player relative bg-gray-700 border-2 border-gray-500 "
+      className=" container m-auto placehold-player relative bg-gray-700 border-2 border-gray-500 "
     >
-      <h1 className="text-purple-500 font-bold mt-8 align-middle text-2xl flex justify-around load">
+      <h1 className=" text-purple-500 font-bold mt-8 align-middle text-2xl flex justify-around load ">
         Watch Twitch clips forever.
       </h1>
       <img

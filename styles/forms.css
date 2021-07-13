@@ -26,6 +26,30 @@ body {
   bottom: 3.5px;
   right: 2.4px;
 }
+.buttons {
+  top: 20px;
+  color: aqua;
+}
+
+.MuiToggleButtonGroup-root {
+  background-color: gainsboro;
+}
+
+.MuiButtonBase-root,
+MuiToggleButton-root,
+MuiToggleButtonGroup-grouped,
+MuiToggleButtonGroup-groupedHorizontal,
+MuiToggleButton-sizeSmall {
+  height: 2rem;
+}
+
+@media (max-width: 640px) {
+  .text-input {
+    position: absolute;
+    left: 200px;
+    top: 10px;
+  }
+}
 
 .load {
   font-family: 'Roobert';
@@ -38,7 +62,6 @@ body {
   line-height: 10rem;
   text-align: center;
 }
-
 .placehold-player {
   width: 1700px;
   height: 75vh;
