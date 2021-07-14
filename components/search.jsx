@@ -14,7 +14,7 @@ export default function Search() {
   const [embed, setEmbed] = useState();
   const [clipLength, setClipLength] = useState(0);
   const [time, setTime] = useState(0);
-  const [period, setPeriod] = useState('week');
+  const [period, setPeriod] = useState('all');
 
   useEffect(() => {
     getVideo();
@@ -103,21 +103,21 @@ export default function Search() {
             <ToggleButton
               value={'week'}
               onClick={() => setVidPeriod('week')}
-              disableRipple="true"
+              disableRipple={true}
             >
               Week
             </ToggleButton>
             <ToggleButton
               value={'month'}
               onClick={() => setVidPeriod('month')}
-              disableRipple="true"
+              disableRipple={true}
             >
               Month
             </ToggleButton>
             <ToggleButton
               value={'all'}
               onClick={() => setVidPeriod('all')}
-              disableRipple="true"
+              disableRipple={true}
             >
               All Time
             </ToggleButton>
