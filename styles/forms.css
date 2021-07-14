@@ -40,7 +40,11 @@ MuiToggleButton-root,
 MuiToggleButtonGroup-grouped,
 MuiToggleButtonGroup-groupedHorizontal,
 MuiToggleButton-sizeSmall {
-  height: 2rem;
+  height: 1.8rem;
+}
+
+.MuiToggleButton {
+  font-family: 'Roobert', Courier, monospace;
 }
 
 @media (max-width: 640px) {
