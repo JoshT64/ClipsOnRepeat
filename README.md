@@ -1,5 +1,9 @@
 # ClipsOnRepeat
 
+Super terribly responsive, only works really well on a 24 inch monitor, so sorry. :)
+
+Zoom out.
+
 https://www.clipsonrepeat.com/
 
 ![Preview:](https://i.imgur.com/eH2Nyhz.jpg)
